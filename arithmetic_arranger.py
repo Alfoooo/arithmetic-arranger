@@ -40,7 +40,7 @@ def arithmetic_arranger(problems, cond=False):
             secondLine = secondLine + item[1] + ' ' + item[2] + '    '
             thirdLine = thirdLine + '-' * (len(item[0])+2) + '    '
 
-            if cond is True:
+            if cond:
                 if len(str(result)) < len(item[0])+2:
                     i = len(str(result))
                     while i < len(item[0])+2:
@@ -54,8 +54,8 @@ def arithmetic_arranger(problems, cond=False):
         print(e)
         exit()
     
-    results = firstLine + '\n' + secondLine + '\n' + thirdLine
-    if cond is True:
-        results = results + '\n' + fourthLine
+    results = firstLine.rstrip() + '\n' + secondLine.rstrip() + '\n' + thirdLine.rstrip()
+    if cond:
+        results = results + '\n' + fourthLine.rstrip()
 
     return results
