@@ -58,4 +58,4 @@ def arithmetic_arranger(problems, cond=False):
     if cond is True:
         results = results + '\n' + fourthLine
 
-    return print(results)
+    return results
