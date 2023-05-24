@@ -7,14 +7,14 @@ def arithmetic_arranger(problems, cond=False):
     try:
         #Check if problems are more than five
         if len(problems) > 5:
-            raise Exception("Error: Too many problems.")
+            return "Error: Too many problems."
         
         for numbers in problems:
             item = numbers.split()
 
             #Check if numbers digit are more than four
             if len(item[0]) > 4 or len(item[2]) > 4:
-                raise Exception("Error: Numbers cannot be more than four digits.")
+                return "Error: Numbers cannot be more than four digits."
             
             #Calculating the numbers
             if item[1] == '+':
@@ -22,7 +22,7 @@ def arithmetic_arranger(problems, cond=False):
             elif item[1] == '-':
                 result = int(item[0])-int(item[2])
             else:
-                raise Exception("Error: Operator must be '+' or '-'." )    
+                return "Error: Operator must be '+' or '-'."
             
             #Adding whitespaces for right-align
             if len(item[0]) < len(item[2]):
@@ -48,11 +48,7 @@ def arithmetic_arranger(problems, cond=False):
                         i += 1
                 fourthLine = fourthLine + result + '    '
     except ValueError:
-        print("Error: Numbers must only contain digits.")
-        exit()
-    except Exception as e:
-        print(e)
-        exit()
+        return "Error: Numbers must only contain digits."
     
     results = firstLine.rstrip() + '\n' + secondLine.rstrip() + '\n' + thirdLine.rstrip()
     if cond:
